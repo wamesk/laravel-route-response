@@ -1,0 +1,38 @@
+{
+    "name": "wamesk/laravel-route-resource",
+    "description": "This package automatically creates API routes for model entities with testing.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Wame\\LaravelRouteResource\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Wame\\LaravelRouteResource\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wame\\LaravelRouteResource\\LaravelRouteResourceServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "WAME.SK",
+            "email": "info@wame.sk"
+        },
+        {
+            "name": "Dávid Puzder",
+            "email": "git@davidpuzder.sk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "9.6.x-dev",
+        "orchestra/testbench": "^v7.19.0"
+    }
+}
