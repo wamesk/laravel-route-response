@@ -142,6 +142,18 @@ Setup database for testing (use MySql)
     <env name="TELESCOPE_ENABLED" value="false"/>
 </php>
 ```
+Add in `composer.json`
+```json
+"autoload-dev": {
+    "psr-4": {
+        "Wame\\LaravelRouteResource\\Tests\\": "vendor/wamesk/laravel-route-resource/tests/"
+    }
+}
+```
+Run
+```bash
+composer dump-autoload
+```
 Run tests
 
 ```bash
