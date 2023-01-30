@@ -3,7 +3,7 @@ This package automatically creates API routes for model entities with testing.
 
 ### Instalation
 ```bash
-composer require wamesk/laravel-resource-routes
+composer require wamesk/laravel-route-resource
 ```
 
 Publish configuaration file:
