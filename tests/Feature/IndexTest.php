@@ -35,7 +35,7 @@ class IndexTest extends TestCase
             $response =
                 $this
                     ->withToken($auth)
-                    ->getJson(route($routeName.'.index'), [
+                    ->getJson(route($routeName.'.index') .'?per_page='. config('wame-route.resources.'. $routeName .'.index_per_page', 2), [
                         'Content-Type' => 'application/json',
                         'Accept' => 'application/json'
                     ]);
