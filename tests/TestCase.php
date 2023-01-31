@@ -5,6 +5,7 @@ namespace Wame\LaravelRouteResource\Tests;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
 use Tests\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
