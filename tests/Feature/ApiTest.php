@@ -2,6 +2,7 @@
 
 namespace Wame\LaravelRouteResource\Tests\Feature;
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Testing\Fluent\AssertableJson;
@@ -53,6 +54,7 @@ class ApiTest extends TestCase
                 ->assertJson(fn (AssertableJson $json) => $this->checkIndexStructure($json));
 
             Log::channel('stderr')->info('SUCCESS ' . $routePath);
+            Artisan::call('cache:clear');
 
             /* Show test */
             // Get route name
@@ -82,6 +84,7 @@ class ApiTest extends TestCase
                 ->assertJson(fn (AssertableJson $json) => $this->checkShowStructure($json));
 
             Log::channel('stderr')->info('SUCCESS ' . $routePath);
+            Artisan::call('cache:clear');
 
             /* Store test */
             // Get route name
@@ -112,6 +115,7 @@ class ApiTest extends TestCase
                 ->assertStatus(201);
 
             Log::channel('stderr')->info('SUCCESS ' . $routePath);
+            Artisan::call('cache:clear');
 
             /* Update test */
             // Get route name
@@ -137,6 +141,7 @@ class ApiTest extends TestCase
                 ->assertStatus(200);
 
             Log::channel('stderr')->info('SUCCESS ' . $routePath);
+            Artisan::call('cache:clear');
         }
         Log::channel('stderr')->info('Done ' . class_basename($this));
     }
