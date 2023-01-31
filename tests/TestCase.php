@@ -14,31 +14,7 @@ class TestCase extends BaseTestCase
 
     public function setUp() : void
     {
-        parent::setUp();
 
-        ini_set('memory_limit', '512M');
-        ini_set('max_execution_time', '600');
-
-        Log::channel('stderr')->info('Clearing database');
-        // Seed Database
-        Artisan::call('optimize:clear');
-        Artisan::call('db:seed');
-        Log::channel('stderr')->info('Cleared database');
-
-        $userData = config('wame-route.user');
-        if (isset($userData['password'])) $userData['password_confirmation'] = $userData['password'];
-
-        $routePath = route('auth.register');
-        Log::channel('stderr')->info('ROUTE' . $routePath);
-        $response = $this->postJson($routePath, $userData);
-
-        $response->assertStatus(201);
-        Log::channel('stderr')->info('SUCCESS ' . $routePath);
-
-        Config::set('wame-route.testing', [
-            'user' => $response['data']['user'],
-            'auth' => $response['data']['auth']
-        ]);
     }
 
     /**
