@@ -15,16 +15,15 @@ class TestCase extends BaseTestCase
 
     public function setUp() : void
     {
+        Log::channel('stderr')->info('Test set up in progress');
         parent::setUp();
 
         ini_set('memory_limit', '512M');
         ini_set('max_execution_time', '600');
 
-        Log::channel('stderr')->info('Clearing database');
         // Seed Database
         Artisan::call('optimize:clear');
         Artisan::call('db:seed');
-        Log::channel('stderr')->info('Cleared database');
 
         $userData = config('wame-route.user');
         if (isset($userData['password'])) $userData['password_confirmation'] = $userData['password'];
@@ -40,6 +39,7 @@ class TestCase extends BaseTestCase
             'user' => $response['data']['user'],
             'auth' => $response['data']['auth']
         ]);
+        Log::channel('stderr')->info('Test set up done');
     }
 
     /**
